@@ -14,7 +14,7 @@ pvgames.portrait_spritesheet = spritesheet.sheet(16, 2000, 2000, 4)
 ---@param offset integer
 ---@param length integer
 ---@param multiline? boolean
----@return any, any
+---@return spritesheet.Spritesheet, spritesheet.Spritesheet
 function pvgames.animation_spritesheet(offset, length, multiline)
 	local per = length
 	if multiline then
@@ -37,7 +37,7 @@ function pvgames.extract_portraits(dir)
 		portraits[k] = frames[v + 1]
 	end
 
-	collection.collect(collection.IMAGE, portraitSheet)
+	image.remove(portraitSheet)
 	return portraits
 end
 
@@ -53,7 +53,7 @@ function pvgames.extract_portrait(dir, portrait)
 		true
 	)[1]
 
-	collection.collect(collection.IMAGE, portraitSheet)
+	image.remove(portraitSheet)
 	return frame
 end
 
@@ -71,7 +71,7 @@ function pvgames.extract_animations(dir)
 		animations[k] = anim
 	end
 
-	collection.collect(collection.IMAGE, animSheet)
+	image.remove(animSheet)
 	return animations
 end
 
@@ -86,7 +86,7 @@ function pvgames.extract_animation(dir, animation)
 	local sheet1, sheet2 = pvgames.animation_spritesheet(v.offset, v.length, true)
 	local anim = spritesheet.extract(animSheet, animation, sheet1, sheet2, true)
 
-	collection.collect(collection.IMAGE, animSheet)
+	image.remove(animSheet)
 	return anim
 end
 
@@ -127,7 +127,7 @@ pvgames.portraits = {
 ---@param offset integer
 ---@param length integer
 ---@return animation
-function create_animation(offset, length)
+local function create_animation(offset, length)
 	return {
 		offset = offset,
 		length = length,
@@ -212,4 +212,3 @@ pvgames.animations = {
 }
 
 return pvgames
-
