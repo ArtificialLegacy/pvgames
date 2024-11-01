@@ -14,7 +14,7 @@ pvgames.portrait_spritesheet = spritesheet.sheet(16, 2000, 2000, 4)
 ---@param offset integer
 ---@param length integer
 ---@param multiline? boolean
----@return spritesheet.Spritesheet, spritesheet.Spritesheet
+---@return spritesheet_Spritesheet, spritesheet_Spritesheet
 function pvgames.animation_spritesheet(offset, length, multiline)
 	local per = length
 	if multiline then
