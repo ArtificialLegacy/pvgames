@@ -4,6 +4,12 @@
 -- spritesheet
 -- image
 
+test.assert_api_version(1)
+test.assert_imported("io")
+test.assert_imported("collection")
+test.assert_imported("spritesheet")
+test.assert_imported("image")
+
 local pvgames = {}
 
 PortraitFile = "Portraits.png"
